@@ -1,0 +1,26 @@
+input[type="file"] {
+    border-style: outset;
+    border-color: beige;
+    width: -webkit-fill-available;
+}
+
+.container {
+    background: #f9f9f9;
+}
+
+input.form-control {
+    display: -webkit-inline-box;
+    background: #f9f1f1;
+    background-clip: padding-box;
+}
+textarea.form-control{
+    background: #f9f1f1;
+}
+select.custom-select {
+    background: #f9f1f1 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center ;
+    background-size: 10px 10px;
+}
+
+.btn.btn-light{
+    width: -webkit-fill-available;
+}

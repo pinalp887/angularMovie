@@ -1,0 +1,96 @@
+{{movieForm.value | json}}
+<div class="container card h-100 w-450 border-5 shadow-lg col-xl-12 py-4 m-5 col-xs-6 col-xs-12">
+  <h5 class="card-title  text-center"><b>Add New Movie</b></h5>
+  <div class="card-body">
+    <form class="form-group" [formGroup]="movieForm">
+      <div class="row">
+        <div class="col">
+          <label for="">Name :</label>
+          <input type="text" class="form-control" formControlName="name" name="name">
+        </div>
+        <div class="col">
+          <label for="">Duration time</label>
+          <input type="text" class="form-control" formControlName="durationTime" name="duration time">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="">Movie Poster :</label>
+          <button class="btn btn-light"><i class="far fa-cloud-upload-alt"></i> <input type="file" name="file"
+              (change)="readFile($event)" multiple></button>
+        </div>
+        <img id="arr" [src]="ur" *ngFor="let ur of url" height="150px" width="150px">
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="">Movie rate</label>
+          <input type="text" class="form-control" name="rate" formControlName="rate">
+        </div>
+        <!-- <i class="fal fa-grin-stars"></i>&nbsp;<i class="fal fa-grin-stars"></i>&nbsp;<i class="fal fa-grin-stars"></i> -->
+        <div class="col">
+          <label for="">Cast</label>
+          <select class="custom-select" (change)="onChange($event.target.value)">
+            <option>Select the cast</option>
+            <option *ngFor="let c of cast;let i = index" value="{{c.id}}">{{c.name}}</option>
+          </select>
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 11 19" enable-background="new 0 0 50 100" xml:space="preserve"><style>.style0{fill:    #e0e0e0 ;}</style><g><path d="M10,2 C8.53531901,0.666666667 7.03531901,0 5.5,0 C3.19702148,0 1.50162384e-16,1.50714111 0,6.00250244 C0,9.50250244 3.5,12.5029907 8.00183105,16.496582 C8.4184847,16.8661971 9.08801023,17.484003 10.0104076,18.35 L10,2 Z"></path></g></svg> -->
+        </div>
+        <button class="btn btn-info" (click)="add()">Click</button>
+        <!-- <div formArrayName="casts" *ngFor="let moviecast of casts.controls; let i=index">
+          <div class="col-lg-6" formGroupName="{{i}}">
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" formControlName="id">
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <br>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> Movie Details</span>
+            </div>
+            <textarea class="form-control" formControlName="details" rows="10" cols="10"></textarea>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label for="">Category :</label>
+          <input type="text" class="form-control" formControlName="category" name="category">
+        </div>
+      </div>
+      <div formGroupName="fileDto">
+        <div class="form-group">
+          <input type="hidden" formControlName="fname" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="hidden" formControlName="base" class="form-control" placeholder="Name">
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary btn-lg">Save &nbsp; &nbsp;&nbsp;&nbsp;</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-info btn-lg"> <i class="fas fa-trash-undo"></i> Reset &nbsp;&nbsp;&nbsp;&nbsp;
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <button (click)="getMovieImage()">Click</button>-->
+<!-- <img src="api/img/15621402939791.jpg" height="150px" width="150px">  -->

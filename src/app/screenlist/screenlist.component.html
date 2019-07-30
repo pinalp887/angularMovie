@@ -1,0 +1,27 @@
+<br>
+<div class="row">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Screen Name</th>
+        <th scope="col">Platinium Seats</th>
+        <th scope="col">Silver Seats</th>
+        <th scope="col">Gold Seats </th>
+        <th colspan="2" class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-secondary" *ngFor="let sc of screen">
+        <th scope="row">{{sc.id}}</th>
+        <td>{{sc.screenName}}</td>
+        <td>{{sc.platiniumSeats}}</td>
+        <td>{{sc.silverSeats}}</td>
+        <td>{{sc.goldSeats}}</td>
+        <td><button class="btn btn-primary text-center" (click)="edit(sc.id)">Edit</button></td>
+        <td><button class="btn btn-warning text-center" (click)="delete(sc.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<img class="avtar" src="http://localhost:8082/movie/img/15621402939791.jpg">

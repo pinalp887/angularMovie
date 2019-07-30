@@ -1,0 +1,133 @@
+{{showForm.value |json}}
+<div class="card h-100 w-300 border-5 shadow-lg col-xl-12 py-4 m-5 col-xs-6 col-xs-12">
+  <h5 class="card-title  text-center"><b>Add New Show</b></h5>
+  <div class="card-body">
+    <form class="form-group" [formGroup]="showForm" (ngSubmit)="save()">
+      <div formArrayName="details" *ngFor="let show of details.controls;let i=index;">
+        <div [formGroupName]="i">
+          <div class="row">
+            <div class="text text-center"><b>Show {{i + 1}}</b></div>
+            <div class="col"><button type="button" [disabled]="details.length == 1" class="btn btn-outline-dark m-4" (click)="removeForm()">Remove
+                Show</button><button type="button" class="btn btn-outline-dark m-4" (click)="createForms()">Add
+                Show</button></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="movie">Movie :</label>
+              <select class="custom-select" formGroupName="movie" (change)="onMovieChange($event.target.value)">
+                <option>Select Movie </option>
+                <option *ngFor="let movie of movies" value="{{movie.id}}">{{movie.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="Screen">Screen :</label>
+              <select class="custom-select" formGroupName="screen" (change)="onScreenChange($event.target.value)">
+                <option>Select screen</option>
+                <option *ngFor="let screen of screens" value="{{screen.id}}">{{screen.screenName}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="date">Date :</label>
+              <input type="date" class="form-control" formControlName="date">
+            </div>
+            <div class="col-md-6">
+              <label for="date">TIme :</label>
+              <input type="time" class="form-control" formControlName="time">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="platiniumPrice">Platinium Price :</label>
+              <input type="text" class="form-control" formControlName="platiniumPrice">
+            </div>
+            <div class="col-md-4">
+              <label for="silver price">Silver Price :</label>
+              <input type="text" class="form-control" formControlName="silverPrice">
+            </div>
+            <div class="col-md-4">
+              <label for="gold price">Gold Price :</label>
+              <input type="text" class="form-control" formControlName="goldPrice">
+            </div>
+          </div>
+          <br>
+          <hr>
+
+        </div>
+      </div>
+      <div class="container">
+        <div class="row-md-6">
+          <div class="col-md-2">
+            <button class="btn btn-info">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div formArrayName="movieShow">
+        <div *ngFor="let movieShowField of movieShow.controls; let i=index">
+          <fieldset>
+            <legend>Movie Show Details {{i+1}}</legend>
+              <div [formGroupName]="i">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                        <label>Show Date:</label>
+                        <input type="date" formControlName="showDate" placeholder="Select Show Date" class="form-control">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                      <label>Start Time:</label>
+                      <input type="time" formControlName="startTime" placeholder="Start Time" class="form-control">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                      <label>End Time:</label>
+                      <input type="time" formControlName="endTime" placeholder="End Time" class="form-control">
+                    </fieldset>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                        <label>Gold Price:</label>
+                        <input type="number" formControlName="goldPrice" placeholder="Gold Price" class="form-control">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                      <label>Silver Price:</label>
+                      <input type="number" formControlName="silverPrice" placeholder="Silver Price" class="form-control">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset class="form-group">
+                      <label>Platinum Price:</label>
+                      <input type="number" formControlName="platinumPrice" placeholder="Platanium Price" class="form-control">
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="">
+            <fieldset class="form-group">
+              <button type="button" (click)="removeMovieShow()" [disabled]="movieShow.length == 1" class="btn btn-info">
+                Remove
+              </button> 
+              
+              <button type="button" (click)="addMovieShow()" class="btn btn-info space">
+                Add More
+              </button>
+            </fieldset>
+          </div> -->

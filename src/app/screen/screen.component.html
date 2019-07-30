@@ -1,0 +1,62 @@
+{{screenForm.value | json}}
+<div class="container card h-100 w-450 border-5 shadow-lg col-xl-12 py-4 m-5 col-xs-6 col-xs-12">
+  <h5 class="card-title text-center">Add New Screen</h5>
+  <hr />
+  <div class="card-body">
+    <form class="form-group" [formGroup]="screenForm" (ngSubmit)="saveScreen()">
+      <div class="row col-xl-12">
+        <div class="col-lg-6">
+          <label for="">Screen Name</label>
+          <input type="text" class="form-control" formControlName="screenName">
+        </div>
+      </div>
+      <hr />
+      <div class="row col-xl-12">
+        <div class="col-lg-6">
+          <label for="">Platinium Seats</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-loveseat"></i></span>
+            </div>
+            <input type="text" class="form-control" formControlName="platiniumSeats">
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row col-xl-12">
+        <div class="col-lg-6">
+          <label for="">Silver Seats</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-loveseat"></i></span>
+            </div>
+            <input type="text" class="form-control" formControlName="silverSeats">
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row col-xl-12">
+        <div class="col-lg-6">
+          <label for="">Gold Seats</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-loveseat"></i></span>
+            </div>
+            <input type="text" class="form-control" formControlName="goldSeats">
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="container">
+        <div class="row col-lg-6">
+          <div class="col-md-3">
+            <button class="btn btn-info" [disabled]="!screenForm.valid"><i class="fal fa-save"></i> Submit</button>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-warning" type="reset"><i class="far fa-sync"></i> Reset</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
